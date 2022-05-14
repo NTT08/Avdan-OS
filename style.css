@@ -1,0 +1,853 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    overflow: hidden;
+    cursor: url(/assets/icons/cursor.png), default;
+}
+
+@keyframes navigation-startup {
+    from{
+        transform: translateY(200%);
+    }
+    to{
+        transform: translateY(0%);
+    }
+}
+
+@keyframes bootLoadOS {
+    from{
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes bg-startup {
+    from{
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes startMenuShow {
+    from{
+        opacity: 0;
+        transform: translateY(30%) translateX(-50%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0%) translateX(-50%);
+    }
+}
+
+@keyframes startMenuHide {
+    from{
+        opacity: 1;
+        transform: translateY(0%) translateX(-50%);
+    }
+    to{
+        opacity: 0;
+        transform: translateY(100%) translateX(-50%);
+    }
+}
+
+@keyframes winboxClose {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(0);
+    }
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'Inter';
+    padding: 0;
+    margin: 0;
+    user-select: none;
+}
+
+.loading-screen{
+    position: fixed;
+    background-color: black;
+    width: 100%;
+    z-index: -2;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-screen img{
+    width: 100px;
+    animation: bootLoadOS 1s ease;
+}
+
+.bg{
+    visibility: hidden;
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.bg img{
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-bar{
+    width: 100%;
+    height: 50px;
+    z-index: 10;
+    justify-content: center;
+    position: absolute;
+    bottom: 12px;
+    display: flex;
+    visibility: hidden;
+}
+
+.navigation-bar > *{
+    backdrop-filter: blur(10px);
+    margin-right: 15px;
+    border-radius: 5px;
+    align-items: center;
+    display: flex;
+}
+
+.navigation-bar > *:nth-child(1){
+    margin-left: 15px;
+}
+
+.navigation-apps .navigation-seperator{
+    background-color: white;
+    opacity: 0.2;
+    height: 70%;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 1px;
+}
+
+.navigation-bar .navigation-apps{
+    width: 500px;
+    height: 100%;
+    padding-left: 14px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding-right: 20px;
+}
+
+.navigation-apps img{
+    width: 36px;
+    margin-right: 15px;
+    transition: 0.4s;
+}
+
+.navigation-apps img:hover{
+    transform: scale(1.2);
+}
+
+.navigation-apps img:active{
+    transform: scale(0.9);
+}
+
+.navigation-apps img:nth-child(6){
+    margin-right: 0;
+}
+
+.navigation-bar .navigation-search{
+    width: 167px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2.5px;
+}
+
+.navigation-search div{
+    width: 150px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-right: 2.5px;
+    margin-left: 2.5px;
+    transition: 0.4s;
+}
+
+.navigation-search div:hover{
+    background-color: rgba(255, 255, 255, 0.164);
+}
+
+.navigation-search div > ion-icon{
+    padding: 12px;
+}
+
+.navigation-search div > img{
+    margin: 8px;
+}
+
+.navigation-search *{
+    width: 24px;
+}
+
+.navigation-bar .navigation-weather{
+    width: 240px;
+    height: 1px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 25px 10px;
+}
+
+.navigation-weather .weather-notification{
+    display: flex;
+    align-items: center;
+}
+
+.navigation-weather .time-date{
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.navigation-weather .time-date #date{
+    font-size: 11px;
+}
+
+.weather-notification .notification{
+    background-color: rgba(255, 255, 255, 0.425);
+    padding: 3px 8px;
+    margin-left: 5px;
+    border-radius: 100%;
+}
+
+.navigation-bar .navigation-wifi{
+    width: 245px;
+    padding: 0 0 0 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.navigation-wifi > *{
+    margin-right: 20px;
+}
+
+.navigation-arrow{
+    width: 13px;
+    rotate: 180deg;
+    position: relative;
+    right: 5px;
+    height: 13px;
+}
+
+.start-menu{
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 840px;
+    height: 609px;
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    bottom: 9.6%;
+    transform: translate(-50%);
+    display: flex;
+}
+
+.start-menu:not(.show):not(.hide){
+    display: none;
+}
+.start-menu.show{
+    display: block;
+    animation: startMenuShow .4s ease;
+}
+
+.start-menu.hide{
+    display: block;
+    animation: startMenuHide .4s ease forwards;
+}
+
+.start-menu-tasks{
+    padding: 30px 25px 25px 25px;
+}
+
+.widgets{
+    width: 100%;
+    height: 133px;
+    border-radius: 5px;
+    display: flex;
+    margin-bottom: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.widgets .weather-widget{
+    padding: 10px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.weather-widget .weather-details{
+    display: flex;
+    height: 40px;
+    align-items: center;
+    font-weight: 600;
+}
+
+.weather-details div{
+    position: relative;
+    left: 5px;
+}
+
+.widgets .task-widget{
+    padding: 10px 5px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.task-widget .tasks * .time-container{
+    display: flex;
+    align-items: center;
+}
+
+.task-widget .tasks * .time-container .time{
+    font-size: 8px;
+    font-weight: 600;
+}
+
+.task-widget .tasks * .time-container .circle{
+    width: 10px;
+    border-radius: 100%;
+    margin-right: 5px;
+    height: 10px;
+    background-color: rgb(255, 81, 110);
+}
+
+.task-widget .tasks * .task-goal{
+    font-weight: 500;
+    font-size: 11px;
+    margin-top: 5px;
+    margin-left: 12px;
+}
+
+.task-widget .tasks > *:not(:last-child){
+    margin-bottom: 15px;
+}
+
+.task-widget h5{
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    margin-bottom: 13px;
+}
+
+
+.widgets > *{
+    background-color: rgba(255, 255, 255, 0.075);
+    border: 1px solid rgba(255, 255, 255, 0.137);
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.widgets > *:not(:nth-child(3)){
+    margin-right: 8px;
+}
+
+.widgets .devices-widget{
+    display: flex;
+}
+
+.widgets .devices-widget > *{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+.widgets .devices-widget > * > .device-icon{
+    padding: 7px;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.178);
+    border: 3px solid rgba(247, 247, 247, 0.26);
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.widgets .devices-widget > * > .device-name{
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.widgets .devices-widget > * > .device-battery-progress{
+    width: 60%;
+    border-radius: 100px;
+    height: 7px;
+    background-color: rgba(255, 255, 255, 0.062);
+    overflow: hidden;
+}
+
+.widgets .devices-widget > * > .device-battery-percent{
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 53px;
+}
+
+.devices-widget > * > .device-battery-progress .battery-bar{
+    height: 100%;
+    background-color: rgb(89, 255, 89);
+}
+
+.devices-widget > *:nth-child(1) > .device-battery-progress .battery-bar{
+    width: 25%;
+}
+
+.devices-widget > *:nth-child(2) > .device-battery-progress .battery-bar{
+    width: 42%;
+}
+
+.devices-widget > *:nth-child(3) > .device-battery-progress .battery-bar{
+    width: 50%;
+}
+
+
+.widgets .devices-widget > *:not(:last-child){
+    margin-right: 7px;
+}
+
+.start-menu-tasks .apps{
+    color: white;
+    display: flex;
+}
+
+.start-menu-tasks .apps .pinned-apps{
+    margin-top: 20px;
+    padding-left: 15px;
+    width: 500px;
+    display: grid;
+    grid-template-columns: 40px 40px 40px 40px 40px 40px 40px;
+    column-gap: 30px;
+    font-size: 10px;
+}
+
+.start-menu-tasks .apps .pinned-apps > div:hover{
+    transform: scale(1.1);
+}
+
+.start-menu-tasks .apps .pinned-apps div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.4s;
+}
+
+.start-menu-tasks .apps .pinned-apps div img {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+.start-menu-tasks .apps .pinned-apps > div:nth-child(n+1):nth-child(-n+7){
+    margin-bottom: 25px;
+}
+
+.apps .seperator{
+    background-color: rgba(255, 255, 255, 0.267);
+    width: 1px;
+    height: 330px;
+    margin-right: 20px;
+}
+
+.apps .activities .activities-grid{
+    margin-top: 21px;
+}
+
+.apps .activities .activities-grid > div{
+    width: 262px;
+    border-radius: 5px;
+    padding: 11px;
+    display: flex;
+    flex-direction: column;
+    height: 94px;
+    margin-bottom: 5px;
+    background-color: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.apps .activities .activities-grid > div .activity-description{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.activities-grid > div .activity-description .title-container{
+    font-weight: 700;
+    margin-left: 11px;
+}
+
+.activities-grid > div .activity-description .title-container .title{
+    font-size: 11px;
+    margin-right: 10px;
+}
+
+.activities-grid > div .activity-description .title-container .author{
+    font-size: 9px;
+}
+
+.activity-description .play, .activity-description .star{
+    font-size: 20px;
+}
+
+.activity-description .icons{
+    margin-left: 30px;
+    position: absolute;
+    display: flex;
+    right: 45px;
+}
+
+.activity-description .icons *:not(:last-child){
+    margin-right: 10px;
+}
+
+.apps .activities .activities-grid > div .activity-description .icon img{
+    width: 45px;
+}
+
+.start-menu-options{
+    background-color: rgba(0, 0, 0, 0.212);
+    width: 100%;
+    height: 62px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+}
+
+.start-menu-options .account{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.start-menu-options .account .account-icon{
+    font-size: 40px;
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+}
+
+.start-menu-options .account .account-name{
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.start-menu-options .shutdown-container{
+    display: flex;
+    color: white;
+    position: relative;
+    left: 30px;
+}
+
+.shutdown-container > div{
+    background-color: rgba(0, 0, 0, 0.308);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.shutdown-container > div:not(:last-child){
+    margin-right: 10px;
+}
+
+.cloud-storage{
+    display: flex;
+    width: 147px;
+    padding: 10px 0;
+    height: 100%;
+    flex-direction: column;
+}
+
+.cloud-storage .cloud-storage-description{
+    display: flex;  
+    width: 100%;
+    height: 30px;
+}
+
+.cloud-storage .cloud-storage-description .storage-description{
+    width: 110px;
+    text-align: right;
+}
+
+.cloud-storage .cloud-storage-description .title{
+    font-size: 11px;
+    font-weight: 600;
+    color: white;
+}
+
+.cloud-storage .cloud-storage-description .icon{
+    font-size: 30px;
+    margin-left: 5px;
+    color: white;
+}
+
+.cloud-storage .cloud-storage-description .description{
+    font-size: 10px;
+    font-weight: 600;
+    color: white;
+}
+
+.cloud-storage .cloud-progress{
+    width: 100%;
+    height: 6px;
+    position: relative;
+    top: 5px;
+    border-radius: 100px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.267);
+}
+
+.cloud-storage .cloud-progress .bar{
+    width: 25%;
+    border-radius: 100px;
+    height: 100%;
+    background-color: rgb(111, 111, 255);
+}
+
+.window {
+    width: 1000px;
+    height: 715px;
+    position: absolute;
+    z-index: 11;
+    background-color: #f1f1f1;
+    min-width: 250px;
+    min-height: 300px;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.089);
+    background-color: rgba(0, 0, 0, 0.637);
+    position: fixed;
+    border-radius: 5px;
+    overflow: hidden;
+    color: white;
+}
+
+.window .ghost-image{
+    position: fixed;
+    opacity: 0.3;
+}
+
+.window .content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    height: 100%;
+}
+
+.window .content .folders-recently-opened{
+    background-color: red;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    height: 100%;
+}
+
+.window.active {
+    z-index: 12;
+    backdrop-filter: blur(10px);
+}
+
+.applications{
+    width: 100%;
+    position: fixed;
+    height: 91.4%;
+}
+
+.resizer{
+    opacity: 0;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    z-index: 1000000000;
+}
+
+.resizer.n{
+    top: 0;
+    cursor: n-resize;
+    width: 100%;
+}
+
+.resizer.s{
+    bottom: 0;
+    cursor: s-resize;
+    width: 100%;
+}
+
+.resizer.w{
+    left: 0;
+    cursor: w-resize;
+    height: 100%;
+}
+
+.resizer.e{
+    right: 0;
+    cursor: e-resize;
+    height: 100%;
+}
+
+.resizer.nw{
+    top: -1px;
+    left: -1px;
+    cursor: nw-resize;
+}
+
+.resizer.sw{
+    bottom: -1px;
+    left: -1px;
+    cursor: sw-resize;
+}
+
+.resizer.se{
+    bottom: -1px;
+    right: -1px;
+    cursor: se-resize;
+}
+
+.resizer.ne{
+    top: -1px;
+    right: -1px;
+    cursor: ne-resize;
+}
+
+.window .title-bar{
+    padding: 2px 3px 2px 10px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.window .title-bar .title{
+    font-size: 13px;
+    background-color: rgba(255, 255, 255, 0.219);
+    padding: 7px 15px;
+    width: 200px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.075);
+    border-radius: 3px;
+}
+
+.window .title-bar .actions{
+    display: flex;
+}
+
+.window .title-bar .tab-container{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.window .title-bar .tab-container .plus{
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    border-radius: 5px;
+    height: 30px;
+    transition: 0.4s;
+}
+
+.window .content .files-search{
+    margin-top: 20px;
+    padding: 7px 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.137);
+    color: white;
+    outline: none;
+    width: 300px;
+}
+
+.window .content .files-search::placeholder{
+    color: white;
+}
+
+.window .title-bar .tab-container .plus:hover{
+    background-color: rgba(255, 255, 255, 0.075);
+}
+
+.window .title-bar .actions > div{
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.137);
+    padding: 3px 3px 3px 4px;
+    border-radius: 5px;
+}
+
+.window .title-bar .actions div .close img{
+    position: relative;
+    right: 1px;
+}
+
+.window .title-bar .actions div img{
+    width: 12px;
+}
+
+.window .title-bar .actions > div > div{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.window .title-bar .actions > div:not(:last-child){
+    margin-right: 5px;
+}
+
+.window .title-bar .actions > div > div:not(:last-child){
+    margin-right: 8px;
+}
+
+
+.folders-recently-opened .folders .favorites .favorites-icon{
+    background-color: green;
+}
+
+.folders-recently-opened .recently-opened-recommended{
+    background-color: black;
+}

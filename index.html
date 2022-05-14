@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Document</title><script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</head>
+<body>
+    <div class="loading-screen" id="loading-screen">
+        <img src="assets/icons/logo.png">
+    </div>
+    <div class="bg">
+        <img src="assets/avdan os wallpaper.png"e class="bg-img" id="bg">
+    </div>
+    <div class="navigation-bar" id="navigation-bar">
+        <div class="navigation-apps">
+            <img src="assets/icons/file.png" onclick="openWindow('File')">
+            <img src="assets/icons/Mail.png">
+            <img src="assets/icons/Lale (avdan os browser) .png">
+            <img src="assets/icons/photos.png">
+            <img src="assets/icons/calander.png">
+            <img src="assets/icons/notes.png">
+            <div class="navigation-seperator"></div>
+            <img src="assets/icons/settings.png">
+            <img src="assets/icons/music.png">
+            <img src="assets/icons/messege.png">
+            <img src="assets/right-thin-chevron-svgrepo-com.svg" class="navigation-arrow">
+        </div>
+        <div class="navigation-search">
+            <div class="search">
+                <ion-icon name="search-outline"></ion-icon>
+            </div>
+            <div class="start-btn">
+                <img src="assets/icons/logo.png" id="start-btn">
+            </div>
+            <div class="copy">
+                <ion-icon name="copy-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="navigation-weather">
+            <div class="time-date">
+                <p id="time">10:48</p>
+                <p id="date">Sunday, March 28</p>
+            </div>
+            <div class="weather-notification">
+                <img class="icon weather-icon">
+                <h4 class="temperature weather-temp" id="temperature">36°</h4>
+                <h4 class="notification">1</h4>
+            </div>
+        </div>
+        <div class="navigation-wifi">
+            <ion-icon name="wifi-outline"></ion-icon>
+            <ion-icon name="bluetooth-outline"></ion-icon>
+            <ion-icon name="volume-medium-outline"></ion-icon>
+            <ion-icon name="battery-full-outline"></ion-icon>
+            <ion-icon name="chevron-up-outline"></ion-icon>
+        </div>
+    </div>
+    <div class="start-menu" id="start-menu">
+        <div class="start-menu-tasks">
+            <div class="widgets">
+                <div class="weather-widget">
+                    <div class="weather-temperature">
+                        <h5>Jakarta</h5>
+                        <h3 class="weather-temp">24</h3>
+                    </div>
+                    <div class="weather-details">
+                        <div class="weather-description">Sunny</div>
+                        <img class="weather-icon"></img>
+                    </div>
+                </div>
+                <div class="task-widget">
+                    <h5>Today</h5>
+                    <div class="tasks">
+                        <div class="task-1">
+                            <div class="time-container">
+                                <div class="circle"></div>
+                                <div class="time">12:00 - 13:00</div>
+                            </div>
+                            <div class="task-goal">
+                                Touch grass
+                            </div>
+                        </div>
+                        <div class="task-2">
+                            <div class="time-container">
+                                <div class="circle"></div>
+                                <div class="time">17:00 - 18:00</div>
+                            </div>
+                            <div class="task-goal">
+                                More programming
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="devices-widget">
+                    <div class="device-1">
+                        <div class="device-icon">
+                            <ion-icon name="phone-portrait-outline"></ion-icon>
+                        </div>
+                        <div class="device-name">
+                            Phone
+                        </div>
+                        <div class="device-battery-percent">
+                            <ion-icon name="battery-charging-outline"></ion-icon>
+                            25%
+                        </div>
+                        <div class="device-battery-progress">
+                            <div class="battery-bar"></div>
+                        </div>
+                    </div>
+                    <div class="device-2">
+                        <div class="device-icon">
+                            <ion-icon name="watch-outline"></ion-icon>
+                        </div>
+                        <div class="device-name">
+                            Apple Watch
+                        </div>
+                        <div class="device-battery-percent">
+                            <ion-icon name="battery-charging-outline"></ion-icon>
+                            42%
+                        </div>
+                        <div class="device-battery-progress">
+                            <div class="battery-bar"></div>
+                        </div>
+                    </div>
+                    <div class="device-3">
+                        <div class="device-icon">
+                            <ion-icon name="car-outline"></ion-icon>
+                        </div>
+                        <div class="device-name">
+                            Aventador
+                        </div>
+                        <div class="device-battery-percent">
+                            <ion-icon name="battery-charging-outline"></ion-icon>
+                            50%
+                        </div>
+                        <div class="device-battery-progress">
+                            <div class="battery-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="apps">
+                    <div class="pinned-apps-container">
+                        <h5>Pinned Apps</h5>
+                        <div class="pinned-apps">
+                            <div class="mail">
+                                <img src="assets/icons/Mail.png">
+                                Mail
+                            </div>  
+                            <div class="photos">
+                                <img src="assets/icons/photos.png">
+                                Photos
+                            </div>
+                            <div class="lale">
+                                <img src="assets/icons/Lale (avdan os browser) .png">
+                                Lale
+                            </div>
+                            <div class="calender">
+                                <img src="assets/icons/calander.png">
+                                Calendar
+                            </div>
+                            <div class="notes">
+                                <img src="assets/icons/notes.png">
+                                Notes
+                            </div>
+                            <div class="message">
+                                <img src="assets/icons/messege.png">
+                                Message
+                            </div>
+                            <div class="music">
+                                <img src="assets/icons/music.png">
+                                Music
+                            </div>
+                            <div class="movies">
+                                <img src="assets/icons/movies.png">
+                                Movies
+                            </div>
+                            <div class="settings">
+                                <img src="assets/icons/settings.png">
+                                Settings
+                            </div>
+                        </div>
+                </div>
+                <div class="seperator"></div>
+                <div class="activities">
+                    <h5>Pick up where you left off</h5>
+                    <div class="activities-grid">
+                        <div class="activity-1">
+                            <h6>Continue Listening</h6>
+                            <div class="activity-description">
+                                <div class="icon"><img src="assets/icons/music.png"></div>
+                                <div class="title-container">
+                                    <div class="title">Dream Speedrun</div>
+                                    <div class="author">Dream</div>
+                                </div>
+                                <div class="icons">
+                                    <div class="play"><ion-icon name="play-outline"></ion-icon></div>
+                                    <div class="star"><ion-icon name="star-outline"></ion-icon></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="activity-2">
+                            <h6>Continue Broswing</h6>
+                            <div class="activity-description">
+                                <div class="icon"><img src="assets/icons/Lale (avdan os browser) .png"></div>
+                                <div class="title-container">
+                                    <div class="title">Lale</div>
+                                    <div class="author">How to clear history</div>
+                                </div>
+                                <div class="icons">
+                                    <div class="star"><ion-icon name="star-outline"></ion-icon></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="activity-3">
+                            <h6>Continue Watching</h6>
+                            <div class="activity-description">
+                                <div class="icon"><img src="assets/icons/movies.png"></div>
+                                <div class="title-container">
+                                    <div class="title">Movies</div>
+                                    <div class="author">Godzilla and King Kong</div>
+                                </div>
+                                <div class="icons">
+                                    <div class="play"><ion-icon name="play-outline"></ion-icon></div>
+                                    <div class="star"><ion-icon name="star-outline"></ion-icon></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="start-menu-options">
+            <div class="account">
+                <div class="account-icon"><ion-icon name="person-circle-outline"></ion-icon></div>
+                <div class="account-name">NTT08</div>
+            </div>
+            <div class="shutdown-container">
+                <div class="settings"><ion-icon name="settings-outline"></ion-icon></div>
+                <div class="apps"><ion-icon name="apps-outline"></ion-icon></div>
+                <div class="shutdown"><ion-icon name="power-outline"></ion-icon></div>
+            </div>
+            <div class="cloud-storage">
+                <div class="cloud-storage-description">
+                    <div class="storage-description">
+                        <div class="title">Cloud Storage</div>
+                        <div class="description">252 GB used of 1 TB</div>
+                    </div>
+                    <div class="icon"><ion-icon name="cloud-outline"></ion-icon></div>
+                </div>
+                <div class="cloud-progress">
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="applications" id="applications">
+        </div>
+    </div>
+</body>
+</html>

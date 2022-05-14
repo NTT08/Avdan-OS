@@ -1,0 +1,14 @@
+.container{
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+.div-1{
+    position: sticky;
+    top: 200px;
+    background-color: green;
+    width: 30px;
+    height: 30px;
+}
